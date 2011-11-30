@@ -30,4 +30,5 @@ meta/makefile.ttl
 README
 t/01basic.t
 t/02stashes.t
+t/03destruction.t
 SIGNATURE                                Public-key signature (added by MakeMaker)
