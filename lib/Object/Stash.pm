@@ -6,7 +6,7 @@ use utf8;
 
 BEGIN {
 	$Object::Stash::AUTHORITY = 'cpan:TOBYINK';
-	$Object::Stash::VERSION   = '0.003';
+	$Object::Stash::VERSION   = '0.003001';
 }
 
 use Carp qw/croak/;

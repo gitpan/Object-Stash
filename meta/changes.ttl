@@ -38,3 +38,9 @@ dist:v_0-003
 		dcs:item   [ rdfs:label "List correct dependencies." ; a dcs:Packaging ]
 		] .
 
+dist:project :release dist:v_0-003001 .
+dist:v_0-003001
+	a               :Version ;
+	dc:issued       "2011-12-02"^^xsd:date ;
+	:revision       "0.003001"^^xsd:string ;
+	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Object-Stash-0.003001.tar.gz> .
