@@ -14,12 +14,12 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 00590f8a08785c29f2969ebde1d1b13ca9719207 Changes
+SHA1 fee39a37230bd8941732f5859ec5fa172407ea13 Changes
 SHA1 f3296a09eb07898f3ba6dd0ece615dafc1b57e16 LICENSE
-SHA1 f6ec1f2b74acf8e6b49cdebd485b5e9653907178 MANIFEST
-SHA1 625fcf0cebbc59db314d1d7849ead726487a0a5e META.yml
+SHA1 c1da2f1e3c56cf03d14fa59ccdcdfc844bd7c005 MANIFEST
+SHA1 66e9b94b5b23f9d4ff28692b3700eea8ecb48cab META.yml
 SHA1 80519f46cf4d005b59c73d680d3f90aef176d9bd Makefile.PL
-SHA1 04e108c05d4d9b203fa2a0f1ed404f3c1e551ebc README
+SHA1 a49c500618843f7f4044035507b9b9e23fa54a91 README
 SHA1 5d94bc10deff1dd74e4bc5dfa6fc015e39271f15 inc/Module/AutoInstall.pm
 SHA1 40106479d4e07f379cb82ca1d69fca92e3a40f47 inc/Module/Install.pm
 SHA1 34a24a530ecf0365cc02e4150b06c9bed702a441 inc/Module/Install/AutoInstall.pm
@@ -39,17 +39,19 @@ SHA1 6b807287940754cc31a3db59f2b22e363d5525be inc/Module/Package/Dist/RDF.pm
 SHA1 775bd24f2fdbb6dce51a8b5b0cdb01fccfce83c4 inc/Scalar/Util.pm
 SHA1 b1b664983568bf822c327599eb88e223483ae96a inc/Scalar/Util/PP.pm
 SHA1 eef6bff62046bff2ce08ba132d0b58fba30f40b4 inc/YAML/Tiny.pm
-SHA1 9266c22f1d22b64e743da7384fcd30e54fdac64b lib/Object/Stash.pm
-SHA1 bb04141c719fbc9292011b9984bfd94da93a0298 meta/changes.ttl
+SHA1 89048ebba6d7987ce118bba1fb89d9ee0b88b88a lib/Object/Stash.pm
+SHA1 1c05029e2a45534d7cab6600abefe9690829567c meta/changes.ttl
 SHA1 ea7c6f03728cb90e751c21a05f8908cdee62e4e5 meta/doap.ttl
 SHA1 98103a78507e79b49b4c82ae457f27064aea5672 meta/makefile.ttl
 SHA1 97cb9f150d6b7c3566c08715e0b1291620c6b2ea t/01basic.t
 SHA1 1c829356e0cb534aa97eba1bd98e5154cd9d7520 t/02stashes.t
 SHA1 07023807a58779e5f186b0c9bf0c01fac496994c t/03destruction.t
+SHA1 b685cb3904ab297bffc3e11a56adc41fca38959c t/04stashobject.t
+SHA1 8a21c1826acf2824cc3fc47de15ead4d01e8a9b9 t/05multiretrieval.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.10 (GNU/Linux)
 
-iEYEARECAAYFAk7aTdMACgkQzr+BKGoqfTnKUgCfeJgfYN0GynkmGNrvz1Je9QeZ
-9vIAni0jTFkG/iBS6HosEULQi5PHVk7R
-=Lf6h
+iEYEARECAAYFAk7asJ8ACgkQzr+BKGoqfTmEqACgqxqhbf2Cj62hlA5c30Os6x6b
+WyIAoLRosV81UTlUR38cOoZbRgTWm7jY
+=koZb
 -----END PGP SIGNATURE-----

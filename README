@@ -16,6 +16,16 @@ SYNOPSIS
      $obj->data({foo => 1, bar => 2}); # same
      p $obj->data;                     # hashref with keys 'foo', 'bar'
      say $obj->data->{foo};            # says '1'
+ 
+     # Retrieve multiple values
+     my @values = $obj->data(['foo', 'bar']);
+     say $values[0];                   # says '1'
+     say $values[1];                   # says '2'
+ 
+     # Or in scalar context
+     my $values = $obj->data(['foo', 'bar']);
+     say $values->[0];                 # says '1'
+     say $values->[1];                 # says '2'
 
 DESCRIPTION
     The Catalyst context object has a method called stash, that provides a
@@ -89,6 +99,50 @@ DESCRIPTION
     Thanks to Hash::FieldHash, an object's stashes *should* get
     automatically garbage collected once the object itself is destroyed,
     unless you've maintained your own references to the stashes.
+
+  Stash Objects
+    While stashes are usually hashrefs, there is also an option to make
+    stashes themselves blessed objects. It's best to illustrate this with an
+    example
+
+     {
+       package MyClass;
+       use Object::New;
+       use Object::Stash 'data', -type => 'object';
+     }
+ 
+     # All this stuff from SYNOPSIS still works...
+     use feature 'say';
+     use Data::Printer qw(p);
+     my $obj = MyClass->new;
+     p $obj->data;                     # an empty hashref
+     $obj->data(foo => 1, bar => 2);   # sets values in the 'data' stash
+     $obj->data({foo => 1, bar => 2}); # same
+     say $obj->data->{foo};            # says '1'
+ 
+     my @values = $obj->data(['foo', 'bar']);
+     say $values[0];                   # says '1'
+     say $values[1];                   # says '2'
+ 
+     my $values = $obj->data(['foo', 'bar']);
+     say $values->[0];                 # says '1'
+     say $values->[1];                 # says '2'
+ 
+     # But now you can retrieve data using accessor methods...
+     say $obj->data->foo;              # says '1'
+ 
+     # The accessors work as not just getters, but setters...
+     $obj->data->foo(99);
+ 
+     # The accessors can be treated as lvalues...
+     $obj->data->foo = 100;
+     $obj->data->foo++;
+ 
+     # Cool, huh?
+     say $obj->data->{foo};            # says '101'
+ 
+     # In case you were wondering...
+     say ref $obj->data;               # says 'Object::Stash::data'
 
 BUGS
     Please report any bugs to

@@ -30,4 +30,6 @@ README
 t/01basic.t
 t/02stashes.t
 t/03destruction.t
+t/04stashobject.t
+t/05multiretrieval.t
 SIGNATURE                                Public-key signature (added by MakeMaker)
