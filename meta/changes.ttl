@@ -44,3 +44,15 @@ dist:v_0-003001
 	dc:issued       "2011-12-02"^^xsd:date ;
 	:revision       "0.003001"^^xsd:string ;
 	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Object-Stash-0.003001.tar.gz> .
+
+dist:project :release dist:v_0-004 .
+dist:v_0-004
+	a               :Version ;
+	dc:issued       "2011-12-03"^^xsd:date ;
+	:revision       "0.004"^^xsd:string ;
+	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Object-Stash-0.004.tar.gz> ;
+	dcs:changeset [
+		dcs:versus dist:v_0-003 ;
+		dcs:item   [ rdfs:label "Update to newer Module::Package::RDF." ; a dcs:Packaging ]
+		] .
+

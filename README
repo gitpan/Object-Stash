@@ -24,6 +24,11 @@ DESCRIPTION
     slot for each piece of information you wish to store, with appropriate
     accessor methods. But often hackish will do.
 
+    (And there are non-hackish ways of using Object::Stash. Take a look at
+    Web::Magic which uses a private stash - named with a leading underscore
+    - and provides public methods for accessing various things stored inside
+    it.)
+
     Object::Stash sets up one or more stash methods for your class. How
     these methods are named depends on how Object::Stash is imported.
     Object::Stash is a role, like Object::New or Object::ID. This means you

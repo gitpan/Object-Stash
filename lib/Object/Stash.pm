@@ -6,7 +6,7 @@ use utf8;
 
 BEGIN {
 	$Object::Stash::AUTHORITY = 'cpan:TOBYINK';
-	$Object::Stash::VERSION   = '0.003001';
+	$Object::Stash::VERSION   = '0.004';
 }
 
 use Carp qw/croak/;
@@ -123,6 +123,10 @@ hashref for storing arbitrary data associated with the object. This is
 arguably a little hackish - the proper solution might be to create a slot
 for each piece of information you wish to store, with appropriate accessor
 methods. But often hackish will do.
+
+(And there are non-hackish ways of using Object::Stash. Take a look at
+L<Web::Magic> which uses a private stash - named with a leading underscore -
+and provides public methods for accessing various things stored inside it.)
 
 Object::Stash sets up one or more stash methods for your class. How these
 methods are named depends on how Object::Stash is imported. Object::Stash
