@@ -6,8 +6,10 @@ use utf8;
 
 BEGIN {
 	$Object::Stash::AUTHORITY = 'cpan:TOBYINK';
-	$Object::Stash::VERSION   = '0.005';
+	$Object::Stash::VERSION   = '0.006';
 }
+
+use base qw/Object::Role/;
 
 use Carp qw/croak/;
 use Hash::FieldHash qw/fieldhashes/;
@@ -24,31 +26,20 @@ sub import
 {
 	my ($invocant, @args) = @_;
 	
-	my %args;
-	while (defined(my $arg = shift @args))
-	{
-		if ($arg =~ /^-/)
-		{
-			$args{$arg} = shift @args;
-		}
-		else
-		{
-			push @{$args{-method}}, $arg;
-		}
-	}
+	my ($caller, %args) = __PACKAGE__->parse_arguments(-method => @args);
 	$args{-method} //= ['stash'];
 	$args{-type}   //= 'hashref';
 	
 	croak sprintf("Stash type '%s' is unknown.", $args{-type})
 		unless $args{-type} =~ m{^ hashref | object $}ix;
 	
-	my $caller = $args{-package} // caller;
+	__PACKAGE__->register_consumer($caller);
 	
 	for my $method (@{$args{-method}})
 	{
 		no strict 'refs';
 		my $name = "$caller\::$method";
-		*$name = my $ref = subname($name, sub { unshift @_, $name, lc $args{-type}; goto &_stash; });
+		*$name = my $ref = subname($name, sub { unshift @_, $name, lc $args{-type}; goto &_internals; });
 		$known_stashes{ $ref } = $name;
 
 		if (lc $args{-type} eq 'object')
@@ -76,7 +67,7 @@ sub is_stash
 }
 
 {	
-	sub _stash
+	sub _internals
 	{
 		my ($stashname, $type, $self, @args) = @_;
 		
@@ -292,13 +283,15 @@ L<http://rt.cpan.org/Dist/Display.html?Queue=Object-Stash>.
 
 L<Object::New>, L<Object::ID>.
 
+L<Object::Stash::Util>.
+
 =head1 AUTHOR
 
 Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
 =head1 COPYRIGHT AND LICENCE
 
-This software is copyright (c) 2011 by Toby Inkster.
+This software is copyright (c) 2011-2012 by Toby Inkster.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
